@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta name="description" content="Web and software developer living in Waterloo, Canada. Studying software engineering at the University of Waterloo.">
+<meta name="keywords" content="Nathan Ko, University of Waterloo, Software engineering, developer, web design, waterloo">
+<meta name="author" content="Nathan Ko">
+<title>Nathan Ko</title>
+<link href="screen.css" rel="stylesheet" type="text/css" />
+</head>
+<body>
+<div id="container">
+  <div id="header">
+    <div class="content">
+      <div id="profile"></div>
+      <div id="intro">
+        <h1 id="hello">Nathan Ko</h1>
+        <p id="tagline">Web and software developer living in Waterloo, Canada. Studying software engineering at the University of Waterloo.</p>
+        <div class="action"><a href="#">
+          <p>Download resume</p>
+          </a></div>
+        <div class="action"><a href="#contact">
+          <p>Contact me</p>
+          </a></div>
+      </div>
+      <div class="clear"></div>
+    </div>
+  </div>
+  <div id="projects">
+    <div class="content">
+      <h1>My Projects</h1>
+      <div id="showcase"> <a href="http://ablewin.ca/" target="_blank">
+        <div class="wrap" id="aw">
+          <div class="text">
+            <h2>Able Win</h2>
+            <p class="tags">Web design</p>
+          </div>
+        </div>
+        </a><a href="http://operationmedschool.com/" target="_blank">
+        <div class="wrap" id="oms">
+          <div class="text">
+            <h2>Operation Med School</h2>
+            <p class="tags">Web design</p>
+          </div>
+        </div>
+        </a><a href="https://web-beta.archive.org/web/20141217004509/canyouth.ca/" target="_blank">
+        <div class="wrap" id="cy">
+          <div class="text">
+            <h2>CanYouth</h2>
+            <p class="tags">Web design, Graphic design, Editing</p>
+          </div>
+        </div>
+        </a><a href="http://summa.nathanko.com/" target="_blank">
+        <div class="wrap" id="rts">
+          <div class="text">
+            <h2>Read the Summa</h2>
+            <p class="tags">Web design, Java</p>
+          </div>
+        </div>
+        </a><a href="https://github.com/nathanko/steeve-website" target="_blank">
+        <div class="wrap" id="sv">
+          <div class="text">
+            <h2>Steeve.me</h2>
+            <p class="tags">Web design</p>
+          </div>
+        </div>
+        </a><a href="http://onesilverlining.com/" target="_blank">
+        <div class="wrap" id="osl">
+          <div class="text">
+            <h2>One Silver Lining</h2>
+            <p class="tags">Web design</p>
+          </div>
+        </div>
+        </a> </div>
+      <div class="clear"></div>
+    </div>
+  </div>
+  <div id="contact">
+    <div class="content">
+      <h1>Let's connect</h1>
+      <div id="contact-links">
+        <div id="email" > <a href="#mailto"><img onclick="emailLink()" src="email.png" height="29" alt="Email" /></a> </div>
+        <div id="github" > <a href="https://github.com/nathanko/" target="_blank"><img src="github.png" height="29" alt="GitHub" /></a> </div>
+        <div id="linkedin" ><a href="https://ca.linkedin.com/in/nathanko" target="_blank"><img src="linkedin.png" height="29" alt="LinkedIn" /></a></div>
+      </div>
+      <div class="clear"></div>
+    </div>
+  </div>
+</div>
+<script type="text/javascript">
+function emailLink(){				
+	var a=[109,99,60,104,89,106,92,83,94,89,91,24,75,85,81]	
+	var b='mailto:'
+	for (var i=0; i<15; i++)
+	 b+=String.fromCharCode(a[i]+2*i)			
+	location.href=b;
+}
+</script>
+</body>
+</html>
