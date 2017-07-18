@@ -1,126 +1,202 @@
-html, body {
+html,
+body {
   height: 100%;
   font-family: 'Montserrat', sans-serif;
 }
+
 .btn {
   border: none;
 }
+
 .jumbotron {
-  /*background: #5cb85c;*/ /*green*/
+  /*background: #5cb85c;*/
+  /*green*/
   background: #2bf;
   position: relative;
   min-height: 100%;
 }
-.jumbotron .container{
+
+.jumbotron .container {
   padding-top: 5%;
   padding-top: calc(35vh - 155px);
   min-width: 0;
   margin: auto auto;
 }
-.jumbotron .container #profile-img{
+
+#cloud-1 {
+  position: absolute;
+  width: 10em;
+  -webkit-animation: moveCloud 27s linear infinite;
+  -moz-animation: moveCloud 27s linear infinite;
+  -o-animation: moveCloud 27s linear infinite;
+}
+#cloud-2 {
+  position: absolute;
+  top: 20em;
+  width: 7em;
+  -webkit-animation: moveCloud 17s linear infinite;
+  -moz-animation: moveCloud 17s linear infinite;
+  -o-animation: moveCloud 17s linear infinite;
+}
+@-webkit-keyframes moveCloud {
+  0% {margin-left: 100%;}
+  100% {margin-left: -100%;}
+}
+@-moz-keyframes moveCloud {
+  0% {margin-left: 100%;}
+  100% {margin-left: -100%;}
+}
+@-o-keyframes moveCloud {
+  0% {margin-left: 100%;}
+  100% {margin-left: -100%;}
+}
+
+.jumbotron .container #profile-img {
   text-align: center;
 }
-.jumbotron #actions a{
+
+#profile-img img {
+  width: 150px;
+  max-width: 80%;
+  border-radius: 1000px;
+}
+
+.jumbotron #actions a {
   margin: 20px 5px;
 }
-.jumbotron #actions span{
+
+.jumbotron #actions span {
   margin-right: 5px;
 }
-#actions #btn-linkedin{
+
+#actions #btn-linkedin {
   color: #fff;
   background: #0077B5;
 }
-#actions #btn-linkedin:hover, #actions #btn-linkedin:focus, #actions #btn-linkedin:active{
+
+#actions #btn-linkedin:hover,
+#actions #btn-linkedin:focus,
+#actions #btn-linkedin:active {
   color: #fff;
   background: #005593;
 }
-#actions #btn-github{
+
+#actions #btn-github {
   color: #fff;
   background: #333;
 }
-#actions #btn-github:hover, #actions #btn-github:focus, #actions #btn-github:active{
+
+#actions #btn-github:hover,
+#actions #btn-github:focus,
+#actions #btn-github:active {
   color: #fff;
   background: #111;
 }
-.jumbotron #bottom{
+
+.jumbotron #bottom {
   color: #ddd;
   text-align: center;
-  width:  100%;
-  position: absolute; 
+  width: 100%;
+  position: absolute;
   bottom: 0em;
 }
+
 #desc {
   color: white;
   text-align: center;
 }
 
+
 /***projects****/
-#projects h2{  
+
+#projects h2 {
   text-align: center;
   margin-bottom: 1em;
 }
-#projects .container{
-  padding:15px 20px;
+
+#projects .container {
+  padding: 15px 20px;
 }
-#projects .container{
-  padding:15px 20px;
+
+#projects .container {
+  padding: 15px 20px;
 }
-#projects .container div{
-  padding:0;
+
+#projects .container div {
+  padding: 0;
 }
-#projects .flip div{
+
+#projects .flip div {
   float: right;
 }
-.project-card{
+
+.project-card {
   padding: 35px 0;
   margin-bottom: 20px;
   border-radius: 5px;
   /*box-shadow: 0 2px 5px #ccc;*/
 }
-.project-desc h3{
+
+.project-desc h3 {
   margin: 0;
   font-weight: bold;
 }
-.project-desc small{
+
+.project-desc small {
   color: #999;
 }
-.project-desc p{
+
+.project-desc p {
   margin: 10px 0;
 }
+
 .project-pic {
   text-align: center;
 }
-.project-pic img{
+
+.project-pic img {
   max-width: 100%;
   max-height: 300px;
   padding: 20px 0;
 }
-#coming-soon{
+
+#coming-soon {
   text-align: center;
   color: #888;
 }
+
+
 /********Footer icons**********/
-#contact h4{
+
+#contact h4 {
   text-align: center;
   margin: 30px auto 15px;
 }
-#contact-links{
+
+#contact-links {
   text-align: center;
 }
+
 #contact {
   background: #f0f8ff;
 }
-a .fa{
+
+a .fa {
   font-size: 1.2em;
 }
-#contact-links{
+
+#contact-links {
   width: 150px;
   margin: 0 auto;
 }
-#contact-links div{
+
+#contact-links div {
   padding-bottom: 30px;
 }
-#contact .fa, #contact .fa:active, #contact .fa:visited {
+
+#contact .fa,
+#contact .fa:active,
+#contact .fa:visited {
   padding: 10px;
   margin-left: -5px;
   font-size: 15px;
@@ -132,7 +208,7 @@ a .fa{
 }
 
 #contact .fa:hover {
-  opacity: 0.7;     
+  opacity: 0.7;
   text-decoration: none;
   color: white;
 }
