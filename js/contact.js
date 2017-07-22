@@ -1,5 +1,8 @@
 $( document ).ready(function() {
   document.getElementById('contactForm').setAttribute("action", "http://formspree.io/"+myEmail());
+  if (window.location.hash == "#sent"){
+    document.getElementById("sent").style.display = "inline";
+  }
 });
 
 function myEmail() {

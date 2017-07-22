@@ -181,6 +181,16 @@ body {
   background: #f0f8ff;
 }
 
+/*triple ".container" for override */
+#contact .container.container.container{
+  padding: 20px 0;
+}
+
+#contactForm #sent{
+  padding:  6px 15px;
+  display:  none;
+}
+
 a .fa {
   font-size: 1.2em;
 }
@@ -211,9 +221,4 @@ a .fa {
   opacity: 0.7;
   text-decoration: none;
   color: white;
-}
-
-/*triple ".container" for override */
-#contact .container.container.container{
-  padding: 20px 0;
 }
