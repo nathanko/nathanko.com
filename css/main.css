@@ -212,3 +212,8 @@ a .fa {
   text-decoration: none;
   color: white;
 }
+
+/*triple ".container" for override */
+#contact .container.container.container{
+  padding: 20px 0;
+}
