@@ -22,33 +22,49 @@ body {
   min-width: 0;
   margin: auto auto;
 }
-
 #cloud-1 {
   position: absolute;
-  width: 10em;
+  top: 5em;
+  width: 15%;
   -webkit-animation: moveCloud 27s linear infinite;
   -moz-animation: moveCloud 27s linear infinite;
   -o-animation: moveCloud 27s linear infinite;
 }
+
 #cloud-2 {
   position: absolute;
   top: 20em;
-  width: 7em;
+  width: 7%;
   -webkit-animation: moveCloud 17s linear infinite;
   -moz-animation: moveCloud 17s linear infinite;
   -o-animation: moveCloud 17s linear infinite;
 }
+
 @-webkit-keyframes moveCloud {
-  0% {margin-left: 100%;}
-  100% {margin-left: -100%;}
+  0% {
+    right:  100%;
+  }
+  100% {
+    right:  0;
+  }
 }
+
 @-moz-keyframes moveCloud {
-  0% {margin-left: 100%;}
-  100% {margin-left: -100%;}
+  0% {
+    margin-left: 100%;
+  }
+  100% {
+    margin-left: -100%;
+  }
 }
+
 @-o-keyframes moveCloud {
-  0% {margin-left: 100%;}
-  100% {margin-left: -100%;}
+  0% {
+    margin-left: 100%;
+  }
+  100% {
+    margin-left: -100%;
+  }
 }
 
 .jumbotron .container #profile-img {
@@ -173,31 +189,32 @@ body {
   margin: 30px auto 15px;
 }
 
-#contact-links {
-  text-align: center;
-}
-
 #contact {
   background: #f0f8ff;
 }
 
+
 /*triple ".container" for override */
-#contact .container.container.container{
+
+#contact .container.container.container {
   padding: 20px 0;
 }
 
-#contactForm #sent{
-  padding:  6px 15px;
-  display:  none;
+#contactForm #sent {
+  padding: 6px 15px;
+  display: none;
 }
 
 a .fa {
   font-size: 1.2em;
 }
 
-#contact-links {
-  width: 150px;
+#connect {
   margin: 0 auto;
+}
+
+#contact-links {
+  margin-top: 50px;
 }
 
 #contact-links div {
@@ -207,18 +224,19 @@ a .fa {
 #contact .fa,
 #contact .fa:active,
 #contact .fa:visited {
-  padding: 10px;
-  margin-left: -5px;
-  font-size: 15px;
+  padding: 10%;
+  /*margin-left: -5px;*/
+  font-size: 2em;
   text-align: center;
   text-decoration: none;
   border-radius: 100%;
-  background: #444;
-  color: white;
+  /*background: #444;*/
+  color: #444;
 }
 
 #contact .fa:hover {
-  opacity: 0.7;
+  /*opacity: 0.7;*/
+  color: #999;
   text-decoration: none;
-  color: white;
+  /*color: white;*/
 }
