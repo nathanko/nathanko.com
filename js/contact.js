@@ -1,5 +1,5 @@
 $( document ).ready(function() {
-  document.getElementById('contactForm').setAttribute("action", "http://formspree.io/"+myEmail());
+  document.getElementById('contactForm').setAttribute("action", "https://formspree.io/"+myEmail());
   if (window.location.hash == "#sent"){
     document.getElementById("sent").style.display = "inline";
   }
@@ -17,4 +17,16 @@ function sendEmail() {
   var url = "mailto:"+myEmail();
   console.debug(url);
   location.href = url;
+}
+
+function submitContactForm() {
+  $.ajax({
+    url: "https://formspree.io/"+myEmail(), 
+    method: "POST",
+    beforeSend: function(xhr){
+      xhr.setRequestHeader('Referer', 'http://nathanko.com/');
+      },
+    data: {message: "hello!"},
+    dataType: "json"
+  });
 }
