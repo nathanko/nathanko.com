@@ -33,7 +33,7 @@ function submitContactForm() {
   var _gotcha = $("input[name=_gotcha]").val();
 
   $.ajax({
-    url: "//aformspree.io/" + myEmail(),
+    url: "//formspree.io/" + myEmail(),
     method: "POST",
     data: {
       name: name,
@@ -48,7 +48,7 @@ function submitContactForm() {
       document.getElementById("sent").innerHTML = "Message sent. Thanks!";
     },
     error: function(xhr) {
-      document.getElementById("sent").innerHTML = "Error sending message. Please try again";
+      document.getElementById("sent").innerHTML = "Error sending message. Please try again!";
     }
   });
 }
