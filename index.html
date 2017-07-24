@@ -127,24 +127,24 @@
               <div class="form-group row">
                 <label for="name" class="col-sm-2 col-form-label">Name</label>
                 <div class="col-sm-10">
-                  <input type="text" name="name" class="form-control" placeholder="Hi, nice to meet you!">
+                  <input type="text" name="name" class="form-control" placeholder="Hi, nice to meet you!" required>
                 </div>
               </div>
               <div class="form-group row">
                 <label for="email" class="col-sm-2 col-form-label">Email</label>
                 <div class="col-sm-10">
-                  <input type="email" name="email" class="form-control" placeholder="What's your email address?">
+                  <input type="email" name="email" class="form-control" placeholder="What's your email address?" required>
                 </div>
               </div>
               <div class="form-group row">
-                <label for="message" class="col-sm-2 col-form-label">Message</label>
+                <label for="message" class="col-sm-2 col-form-label" >Message</label>
                 <div class="col-sm-10">
-                  <textarea name="message" class="form-control" placeholder="What's up?"></textarea>
+                  <textarea name="message" class="form-control" placeholder="What's up?" required></textarea>
                 </div>
               </div>
               <input type="hidden" name="_subject" value="Message from contact form" />
               <input type="hidden" name="_format" value="plain" />
-              <input type="hidden" name="_next" value="#sent" />
+              <input type="text" name="_gotcha" style="display:none" />
               <button type="submit" class="btn pull-right">Send</button>
               <span id="sent" class="pull-right">Message sent. Thanks!</span>
             </form>

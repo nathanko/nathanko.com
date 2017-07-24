@@ -1,8 +1,11 @@
-$( document ).ready(function() {
-  document.getElementById('contactForm').setAttribute("action", "//formspree.io/"+myEmail());
-  if (window.location.hash == "#sent" && document.referrer.includes("//formspree.io/")){
-    document.getElementById("sent").style.display = "inline";
-  }
+$(document).ready(function() {
+
+  //Use JQuery to send the form, not HTML
+  $("#contactForm").submit(function(event) {
+    event.preventDefault();
+    submitContactForm();
+  });
+
 });
 
 function myEmail() {
@@ -14,19 +17,36 @@ function myEmail() {
 }
 
 function sendEmail() {
-  var url = "mailto:"+myEmail();
+  var url = "mailto:" + myEmail();
   console.debug(url);
   location.href = url;
 }
 
 function submitContactForm() {
+  var name = $("input[name=name]").val();
+  var email = $("input[name=email]").val().trim();
+  var message = $("textarea[name=message]").val();
+  var _subject = $("input[name=_subject]").val();
+  var _format = $("input[name=_format]").val();
+  var _gotcha = $("input[name=_gotcha]").val();
+
   $.ajax({
-    url: "//formspree.io/"+myEmail(), 
+    url: "//formspree.io/" + myEmail(),
     method: "POST",
-    beforeSend: function(xhr){
-      xhr.setRequestHeader('Referer', 'http://nathanko.com/');
-      },
-    data: {message: "hello!"},
-    dataType: "json"
+    data: {
+      name: name,
+      email: email,
+      message: message,
+      _subject: _subject,
+      _format: _format,
+      _gotcha: _gotcha
+    },
+    dataType: "json",
+    success: function() {
+      document.getElementById("sent").style.display = "inline";
+    },
+    error: function(xhr) {
+      console.log(xhr)
+    }
   });
 }
