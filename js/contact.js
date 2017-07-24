@@ -23,6 +23,8 @@ function sendEmail() {
 }
 
 function submitContactForm() {
+  document.getElementById("sent").innerHTML = "Sending...";
+
   var name = $("input[name=name]").val();
   var email = $("input[name=email]").val().trim();
   var message = $("textarea[name=message]").val();
@@ -31,7 +33,7 @@ function submitContactForm() {
   var _gotcha = $("input[name=_gotcha]").val();
 
   $.ajax({
-    url: "//formspree.io/" + myEmail(),
+    url: "//aformspree.io/" + myEmail(),
     method: "POST",
     data: {
       name: name,
@@ -43,10 +45,10 @@ function submitContactForm() {
     },
     dataType: "json",
     success: function() {
-      document.getElementById("sent").style.display = "inline";
+      document.getElementById("sent").innerHTML = "Message sent. Thanks!";
     },
     error: function(xhr) {
-      console.log(xhr)
+      document.getElementById("sent").innerHTML = "Error sending message. Please try again";
     }
   });
 }
