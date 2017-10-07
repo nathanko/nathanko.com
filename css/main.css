@@ -1,7 +1,7 @@
 html,
 body {
   height: 100%;
-  font-family: 'Montserrat', sans-serif;
+  font-family: 'Helvetica', 'Open Sans', 'Arial', sans-serif;
 }
 
 .btn {
@@ -14,6 +14,7 @@ body {
   background: #2bf;
   position: relative;
   min-height: 100%;
+  margin-bottom: 0;
 }
 
 .jumbotron .container {
@@ -124,7 +125,14 @@ body {
 
 
 /***projects****/
-
+.full-width {
+  width: 100%;
+  left: 0;
+}
+.full-height {
+  min-height: 100vh;
+  padding: 30px 0;
+}
 #projects h2 {
   text-align: center;
   margin-bottom: 1em;
@@ -154,16 +162,20 @@ body {
 }
 
 .project-desc h3 {
+  color: #fff;
   margin: 0;
   font-weight: bold;
+  text-align: center;
 }
 
-.project-desc small {
-  color: #999;
+.project-desc {
+  color: #ddd;
+  text-align: center;
 }
 
 .project-desc p {
-  margin: 10px 0;
+  color: #eee;
+  margin: 2em 0;
 }
 
 .project-pic {
@@ -181,6 +193,21 @@ body {
   color: #888;
 }
 
+#excubia-proj{
+  background: #f66;
+}
+#breakout-proj{
+  background: #236;
+}
+#pigeon-proj{
+  background: #6b8;
+}
+#ttt-proj{
+  background: #234;
+}
+#oms-proj{
+  background: #c44;
+}
 
 /********Footer icons**********/
 
