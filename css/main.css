@@ -110,6 +110,30 @@ body {
   background: #111;
 }
 
+#actions #btn-resume {
+  color: #fff;
+  background: #3a0;
+}
+
+#actions #btn-resume:hover,
+#actions #btn-resume:focus,
+#actions #btn-resume:active {
+  color: #fff;
+  background: #3c2;
+}
+
+#actions #btn-contact {
+  color: #fff;
+  background: #0077B5;
+}
+
+#actions #btn-contact:hover,
+#actions #btn-contact:focus,
+#actions #btn-contact:active {
+  color: #fff;
+  background: #005593;
+}
+
 .jumbotron #bottom {
   color: #ddd;
   text-align: center;
@@ -215,6 +239,9 @@ body {
   color: #888;
 }
 
+#rd-proj{
+  background: #6b8;
+}
 #excubia-proj{
   background: #f66;
 }
