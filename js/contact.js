@@ -2,7 +2,6 @@
   // Listen for form submit
   document.querySelector("#contactForm").addEventListener("submit", function (e) {
     e.preventDefault();
-  console.log("listengn")
   submitContactForm();
   });
 
@@ -16,8 +15,19 @@ function getAddr() {
   return b;
 }
 
-function sendMail() {
-  location.href = "mailto:" + getAddr();
+function redirectToURL(url) {
+  location.href = url;
+}
+
+function makeMailtoURL(addr, subject, body) {
+  let link = "mailto:" + addr + "?";
+  if (subject) {
+    link += "subject=" + encodeURIComponent(subject) + "&"
+  }
+  if (body) {
+    link += "body=" + encodeURIComponent(body) + "&"
+  }
+  return link;
 }
 
 function submitContactForm() {
@@ -54,8 +64,7 @@ function submitContactForm() {
     .then(data => {
       msgEle.innerHTML = "Thanks for your message. I'll get in touch with you soon!";
     }).catch(err => {
-        console.error("Error: ", err);
-        msgEle.innerHTML = "Oops, there was a problem sending your message. Please try again later or " +
-         "<a href='#' onClick='sendMail()' title='" + "mailto:" + getAddr() + "'>send me an email</a>.";
+        const mailtoLink = makeMailtoURL(getAddr(), "Hello!", message);
+        msgEle.innerHTML = `Oops!, there was a problem sending your message. Please try again later or <a href='#' onClick='redirectToURL("${mailtoLink}")' title='${mailtoLink}'>send me an email</a> instead.`;
     });
 }
