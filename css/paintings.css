@@ -1,0 +1,60 @@
+figure.painting {
+  margin: 0;
+  max-width: 100%;
+  max-height: 100%;
+}
+
+figure.painting img {
+  max-width: inherit;
+  max-height: inherit;
+}
+
+/* Painting Modal
+----------------------------------------------- */
+
+.modal {
+  display: none; 
+  position: fixed; /* Stay in place */
+  z-index: 10; /* Sit on top */
+  left: 0;
+  top: 0;
+  width: 100%; /* Full width */
+  height: 100%; /* Full height */
+  overflow: auto;
+  background-color: rgb(0,0,0); /* Fallback color */
+  background-color: rgba(0,0,0,0.4); /* Black w/ opacity */
+}
+.modal-container {
+  margin: 2rem auto; /* 15% from the top and centered */
+  background-color: #fefefe;
+  border-radius: 5px;
+  max-height: 90vh;
+  max-width: 80vw;
+}
+.modal-content {
+  padding: 1rem 2rem 4rem;
+}
+.modal-content figure.painting {
+  text-align: center;
+  max-height: 80vh;
+  max-width: 100%;
+}
+.modal-content img {
+  margin: 0 auto;
+  /* 4em for caption */
+  max-height: calc(80vh - 4em) !important;
+  max-width: inherit !important;
+}
+.modal-content figcaption {
+  text-align: center;
+}
+.modal-close {
+  font-size: 4rem;
+  /* font-weight: bold; */
+}
+button.modal-close {
+  /* Override Button look and feel */
+  border: none !important;
+  padding: 1rem !important;
+  margin: 0 1rem;
+}
