@@ -175,7 +175,7 @@
             </li>
           </ul>
         </div>
-      </div>      
+      </div>
       <div class="row">
         <hr />
         <div class="twelve columns">
@@ -184,19 +184,20 @@
           <form id="contactForm">
             <div class="row">
               <div class="six columns">
-                <label for="contact-name">Your name</label>
-                <input class="u-full-width" type="text" placeholder="Hi, what's your name?" id="contact-name" required>
+                <label for="name">Name</label>
+                <input class="u-full-width" type="text" placeholder="" name="name" required>
               </div>
               <div class="six columns">
-                <label for="contact-email">Your email</label>
-                <input class="u-full-width" type="email" placeholder="What's your email?" id="contact-email" required>
+                <label for="email">Email</label>
+                <input class="u-full-width" type="email" placeholder="" name="email" required>
               </div>
             </div>
-            <label for="contact-message">Message</label>
-            <textarea class="u-full-width" placeholder="Hi Nathan…" id="contact-message" required></textarea>
-            <input type="hidden" id="_subject" value="Message from contact form" />
-            <input type="hidden" id="_format" value="plain" />
-            <input type="text" id="_gotcha" style="display:none" />
+            <label for="message" style="display:none" >Message</label>
+            <input type="text" name="message" style="display:none" />
+            <label for="real_message">Message</label>
+            <textarea class="u-full-width" placeholder="" name="real_message" required></textarea>
+            <input type="hidden" name="_subject" value="Message from contact form" />
+            <input type="hidden" name="_format" value="plain" />
             <div class="row">
               <input class="button four columns" type="submit" value="Submit">
               <div id="form-response-message" class="eight columns"></div>

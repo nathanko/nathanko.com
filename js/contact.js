@@ -33,29 +33,37 @@ function makeMailtoURL(addr, subject, body) {
 function submitContactForm() {
   const msgEle = document.getElementById("form-response-message")
   
+  function handleFormSubmitError(message) {
+    const mailtoLink = makeMailtoURL(getAddr(), "Hello!", message);
+    msgEle.innerHTML = `Oops! There was a problem sending your message. Please try again later or <a href='#' onClick='redirectToURL("${mailtoLink}")' title='${mailtoLink}'>send me an email</a> instead.`;
+  }
+  
   msgEle.innerHTML = "Sending...";
 
-  const name = document.querySelector("input[id=contact-name]").value;
-  const email = document.querySelector("input[id=contact-email]").value.trim();
-  const message = document.querySelector("textarea[id=contact-message]").value;
-  const _subject = document.querySelector("input[id=_subject]").value;
-  const _format = document.querySelector("input[id=_format]").value;
-  const _gotcha = document.querySelector("input[id=_gotcha]").value;
+  const name = document.querySelector("input[name=name]").value;
+  const email = document.querySelector("input[name=email]").value.trim();
+  const _gotcha = document.querySelector("input[name=message]").value;
+  const real_message = document.querySelector("textarea[name=real_message]").value;
+  const _subject = document.querySelector("input[name=_subject]").value;
+  const _format = document.querySelector("input[name=_format]").value;
 
-  const url = "//formspree.io/" + getAddr();
+  if (_gotcha) {
+    // Non-empty gotcha probably means a spam bot entered data
+    handleFormSubmitError(real_message);
+    return;
+  }
+
+  const url = "https://formspree.io/" + getAddr();
   const options = {
     method: "POST",
     body: JSON.stringify({
       name: name,
       email: email,
-      message: message,
-      _subject: _subject,
-      _format: _format,
+      message: real_message,
       _gotcha: _gotcha
     }),
     headers: {
-      "Content-Type": "application/json",
-      dataType: "json"
+      "Accept": "application/json",
     }
   }
 
@@ -64,7 +72,6 @@ function submitContactForm() {
     .then(data => {
       msgEle.innerHTML = "Thanks for your message. I'll be in touch with you soon!";
     }).catch(err => {
-        const mailtoLink = makeMailtoURL(getAddr(), "Hello!", message);
-        msgEle.innerHTML = `Oops! There was a problem sending your message. Please try again later or <a href='#' onClick='redirectToURL("${mailtoLink}")' title='${mailtoLink}'>send me an email</a> instead.`;
+      handleFormSubmitError(real_message);
     });
 }
