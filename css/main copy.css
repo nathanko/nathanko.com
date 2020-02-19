@@ -1,0 +1,318 @@
+html,
+body {
+  height: 100%;
+  font-family: 'Helvetica', 'Open Sans', 'Arial', sans-serif;
+}
+
+.btn {
+  border: none;
+}
+
+.jumbotron {
+  /*background: #5cb85c;*/
+  /*green*/
+  background: #2bf;
+  position: relative;
+  min-height: 100%;
+  margin-bottom: 0;
+}
+
+.jumbotron .container {
+  padding-top: 5%;
+  padding-top: calc(35vh - 155px);
+  min-width: 0;
+  margin: auto auto;
+}
+#cloud-1 {
+  position: absolute;
+  top: 5em;
+  width: 15%;
+  -webkit-animation: moveCloud 27s linear infinite;
+  -moz-animation: moveCloud 27s linear infinite;
+  -o-animation: moveCloud 27s linear infinite;
+}
+
+#cloud-2 {
+  position: absolute;
+  top: 20em;
+  width: 7%;
+  -webkit-animation: moveCloud 17s linear infinite;
+  -moz-animation: moveCloud 17s linear infinite;
+  -o-animation: moveCloud 17s linear infinite;
+}
+
+@-webkit-keyframes moveCloud {
+  0% {
+    right:  100%;
+  }
+  100% {
+    right:  0;
+  }
+}
+
+@-moz-keyframes moveCloud {
+  0% {
+    margin-left: 100%;
+  }
+  100% {
+    margin-left: -100%;
+  }
+}
+
+@-o-keyframes moveCloud {
+  0% {
+    margin-left: 100%;
+  }
+  100% {
+    margin-left: -100%;
+  }
+}
+
+.jumbotron .container #profile-img {
+  text-align: center;
+}
+
+#profile-img img {
+  width: 150px;
+  max-width: 80%;
+  border-radius: 1000px;
+}
+
+.jumbotron #actions a {
+  margin: 20px 5px;
+}
+
+.jumbotron #actions span {
+  margin-right: 5px;
+}
+
+#actions #btn-linkedin {
+  color: #fff;
+  background: #0077B5;
+}
+
+#actions #btn-linkedin:hover,
+#actions #btn-linkedin:focus,
+#actions #btn-linkedin:active {
+  color: #fff;
+  background: #005593;
+}
+
+#actions #btn-github {
+  color: #fff;
+  background: #333;
+}
+
+#actions #btn-github:hover,
+#actions #btn-github:focus,
+#actions #btn-github:active {
+  color: #fff;
+  background: #111;
+}
+
+#actions #btn-resume {
+  color: #fff;
+  background: #3a0;
+}
+
+#actions #btn-resume:hover,
+#actions #btn-resume:focus,
+#actions #btn-resume:active {
+  color: #fff;
+  background: #3c2;
+}
+
+#actions #btn-contact {
+  color: #fff;
+  background: #0077B5;
+}
+
+#actions #btn-contact:hover,
+#actions #btn-contact:focus,
+#actions #btn-contact:active {
+  color: #fff;
+  background: #005593;
+}
+
+.jumbotron #bottom {
+  color: #ddd;
+  text-align: center;
+  width: 100%;
+  position: absolute;
+  bottom: 0em;
+}
+
+#desc {
+  color: white;
+  text-align: center;
+}
+
+/****** about ****/
+#about {
+  padding: 3em 0;
+  line-height: 2em;
+  background: #efe;
+}
+#about h2 {
+  text-align: center;
+  margin: 1em;
+  color: #3b9;
+}
+#about p {
+  text-align: center;
+  margin-bottom: 1em; 
+  font-size: 18px;
+  color: #343;
+}
+
+/***projects****/
+.full-width {
+  width: 100%;
+  left: 0;
+}
+.full-height {
+  min-height: 100vh;
+  padding: 30px 0;
+}
+#projects h2 {
+  text-align: center;
+  margin-bottom: : 1em;
+  color: #fff;
+}
+
+#projects .container {
+  padding: 15px 20px;
+}
+
+#projects .container {
+  padding: 15px 20px;
+}
+
+#projects .container div {
+  padding: 0;
+}
+
+#projects .flip div {
+  float: right;
+}
+
+.project-card {
+  padding: 35px 0;
+  margin-bottom: 20px;
+  border-radius: 5px;
+  /*box-shadow: 0 2px 5px #ccc;*/
+}
+
+.project-desc h3 {
+  color: #fff;
+  margin: 0;
+  font-size: 24px;
+  font-weight: bold;
+  text-align: center;
+}
+
+.project-desc {
+  color: #ddd;
+  text-align: center;
+}
+.project-desc small{
+  font-size: 14px;
+}
+.project-desc p {
+  color: #eee;
+  font-size: 18px;
+  margin: 2em 0;
+}
+
+.project-pic {
+  text-align: center;
+}
+
+.project-pic img {
+  max-width: 100%;
+  max-height: 300px;
+  padding: 20px 0;
+}
+
+#coming-soon {
+  text-align: center;
+  color: #888;
+}
+
+#rd-proj{
+  background: #6b8;
+}
+#excubia-proj{
+  background: #f66;
+}
+#breakout-proj{
+  background: #236;
+}
+#pigeon-proj{
+  background: #6b8;
+}
+#ttt-proj{
+  background: #234;
+}
+#oms-proj{
+  background: #c44;
+}
+
+/********Footer icons**********/
+
+#contact h4 {
+  text-align: center;
+  margin: 30px auto 15px;
+}
+
+#contact {
+  background: #f0f8ff;
+}
+
+
+/*triple ".container" for override */
+
+#contact .container.container.container {
+  padding: 20px 0;
+}
+
+#contactForm #sent {
+  padding: 6px 15px;
+}
+
+a .fa {
+  font-size: 1.2em;
+}
+
+#connect {
+  margin: 0 auto;
+}
+
+#contact-links {
+  margin-top: 50px;
+}
+
+#contact-links div {
+  text-align: center;
+  padding-bottom: 30px;
+}
+
+#contact .fa,
+#contact .fa:active,
+#contact .fa:visited {
+  padding: 10%;
+  /*margin-left: -5px;*/
+  font-size: 2em;
+  text-align: center;
+  text-decoration: none;
+  border-radius: 100%;
+  /*background: #444;*/
+  color: #444;
+}
+
+#contact .fa:hover {
+  /*opacity: 0.7;*/
+  color: #999;
+  text-decoration: none;
+  /*color: white;*/
+}

@@ -25,6 +25,11 @@ hr:not(.full) {
 ul.dashed {
   list-style: none;
 }
+
+ul.dashed > li {
+  margin-left: 1.2em;
+}
+
 ul.dashed > li:before {
   content: "–";
   position: absolute;
@@ -37,6 +42,11 @@ ul.dashed > li:before {
 .list-heading:not(:first-child) {
   margin-top: 2rem !important;
   margin-bottom: 1rem !important;
+}
+
+.small-text {
+  font-size: smaller !important;
+  /* font-size-adjust: 0.3; */
 }
 
 /* Links
@@ -72,17 +82,12 @@ a:hover {
 /* Components
 ----------------------------------------------- */
 
-.container.wrapper {
-  border: 1px solid black;
-  width: 100vw !important ;
-}
-
-#navbar {
-  /* border: 1px solid black; */
-  padding: 2rem 5rem;
-  /* margin-top: 5rem; */
+#navbar .items {
+  padding-top: 2rem;
+  padding-bottom: 2rem;
   display: flex;
   flex-direction: row;
+  flex-wrap: wrap;
   align-items: center;
 }
 
@@ -95,6 +100,16 @@ a:hover {
   margin-left: 3rem; 
 }
 
+/* Vertical navbar for small phones */
+@media (max-width: 375px) {
+  #navbar .items {
+    flex-direction: column !important;
+  }
+  #navbar .nav-link {
+    margin: 1rem auto !important;
+  }
+}
+
 #sidebar {
   margin: 1rem 2rem;
 }
@@ -103,6 +118,7 @@ a:hover {
 }
 
 #footer {
+  margin-top: 4rem;
   padding-bottom: 4rem;
 }
 
@@ -115,8 +131,9 @@ a:hover {
 }
 
 #jumbotron {
-  height: calc(90vh - 200px);
-  /* border: 1px dashed blue; */
+  padding-top: 5rem;
+  padding-bottom: 5rem;
+  min-height: calc(90vh - 200px);
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -138,7 +155,7 @@ input, textarea {
 }
 
 #form-response-message {
-  padding-left: 2rem;
+  /* margin-left: 2rem; */
 }
 
 /* Companies
@@ -147,12 +164,13 @@ input, textarea {
 .company-list {
   display: flex;
   justify-content: center;
+  flex-wrap: wrap;
 }
 
 .company-list .item {
-  width: 12rem;
-  height: 8rem;
-  margin: 1rem;
+  width: 10rem;
+  height: 6rem;
+  margin: 1rem 2rem;
   opacity: .8;
 
   background-size: contain;
@@ -180,7 +198,7 @@ input, textarea {
 ----------------------------------------------- */
 
 .project-list a {
-  margin-right: 1rem;
+  margin-right: 2rem;
 }
 .project-list .item {
   margin: 3rem 0;

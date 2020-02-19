@@ -19,28 +19,32 @@
 </head>
 <body>
   <div class="wrapper">
-    <div id="navbar" class="row">
-      <a href="/" class="no-link-style">
-        <img class="logo" title="Nathanko.com" src="img/logo-blue.png" />
-      </a>
-      <a href="/blog" title="Blog" class="nav-link">Blog</a>
-      <a href="/resume" title="Resume" class="nav-link">Resume</a>
-      <a href="/paintings" title="Paintings" class="nav-link">Paintings</a>
+    <div id="navbar" class="container">
+      <div class="row items">
+        <a href="/" class="no-link-style">
+          <img class="logo" title="Nathanko.com" src="img/logo-blue.png" />
+        </a>
+        <a href="/blog" title="Blog" class="nav-link">Blog</a>
+        <a href="/resume" title="Resume" class="nav-link">Resume</a>
+        <a href="/paintings" title="Paintings" class="nav-link">Paintings</a>
+      </div>
     </div>
     <header id="jumbotron" class="container">
-      <div id="big-text" class="twelve columns">
-        <h1>
-          <strong>Hello, I'm Nathan Ko.</strong>
-        </h1>
-        <h2>
-          Software developer, designer, engineer, artist and still-aspiring polymath.
-        </h2>
-        <h5>
-          Currently:
-          <!-- <a href="https://uwaterloo.ca/software-engineering/" target="_blank">U of Waterloo</a> Software Engineering Class of 2021
-          & -->
-          Software developer at <a href="http://interaptix.com" target="_blank">Interaptix</a>.
-        </h5>
+      <div class="row">
+        <div id="big-text" class="twelve columns">
+          <h1>
+            <strong>Hello, I'm Nathan Ko.</strong>
+          </h1>
+          <h2>
+            Software developer, designer, engineer, artist and still-aspiring polymath.
+          </h2>
+          <h5>
+            Currently:
+            <!-- <a href="https://uwaterloo.ca/software-engineering/" target="_blank">U of Waterloo</a> Software Engineering Class of 2021
+            & -->
+            Software developer at <a href="http://interaptix.com" target="_blank">Interaptix</a>.
+          </h5>
+        </div>
       </div>
     </header>
     <div class="container"><hr /></div>
@@ -85,7 +89,7 @@
                 <span class="glyphicon glyphicon-link"></span> Visit website
               </a>
               <a href="https://github.com/nathanko/reverse-dictionary" class="btn btn-success" target="_blank">
-                <span class="fa fa-github"></span> View source
+                <span class="fa fa-github"></span> See repo
               </a>
             </div>
             <div class="item">
@@ -96,7 +100,7 @@
                 <span class="glyphicon glyphicon-link"></span> See project
               </a>
               <a href="https://github.com/nathanko/excubia" class="btn btn-success" target="_blank">
-                <span class="fa fa-github"></span> View source
+                <span class="fa fa-github"></span> See repo
               </a>
             </div>
             <div class="item">
@@ -107,7 +111,7 @@
                 <span class="glyphicon glyphicon-link"></span> Visit website
               </a>
               <a href="https://github.com/nathanko/breakout-game" class="btn btn-success" target="_blank">
-                <span class="fa fa-github"></span> View source
+                <span class="fa fa-github"></span> See repo
               </a>
             </div>
             <div class="item">
@@ -118,7 +122,7 @@
                 <span class="glyphicon glyphicon-link"></span> Visit website
               </a>
               <a href="https://github.com/nathanko/pigeon" class="btn btn-success" target="_blank">
-                <span class="fa fa-github"></span> View source
+                <span class="fa fa-github"></span> See repo
               </a>
             </div> 
           </div>
@@ -141,7 +145,7 @@
             <li>C++</li>
             <li>Python</li>
             <li>SQL</li>
-            <h6 class="list-heading">Frameworks/Libaries</h6>
+            <h6 class="list-heading">Frameworks/Libraries</h6>
             <li>Angular</li>
             <li>React</li>
             <li>RxJS</li>
@@ -198,16 +202,18 @@
             <input type="hidden" id="_subject" value="Message from contact form" />
             <input type="hidden" id="_format" value="plain" />
             <input type="text" id="_gotcha" style="display:none" />
-            <input class="button" type="submit" value="Submit">
-            <span id="form-response-message"></span>
+            <div class="row">
+              <input class="button four columns" type="submit" value="Submit">
+              <div id="form-response-message" class="eight columns"></div>
+            </div>
+          </form>
         </div>
       </div>
-      
-      <div id="footer" class="row" style="margin-top:5rem;">
+      <div id="footer" class="row">
         <hr class="full">
         <a href="https://www.linkedin.com/in/nathanko" title="LinkedIn @nathanko" target="_blank"class="no-link-style fa fa-linkedin" ></a>
         <a href="https://github.com/nathanko" title="github @nathanko" target="_blank"class="no-link-style fa fa-github" ></a>
-        <span class="u-pull-right">&copy; 2020 Nathan Ko.</span>
+        <span class="u-pull-right small-text">&copy; 2020 Nathan Ko.</span>
       </div>
     </div>
   </div>
