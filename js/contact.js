@@ -62,9 +62,9 @@ function submitContactForm() {
   fetch(url, options)
     .then(res => res.json())
     .then(data => {
-      msgEle.innerHTML = "Thanks for your message. I'll get in touch with you soon!";
+      msgEle.innerHTML = "Thanks for your message. I'll be in touch with you soon!";
     }).catch(err => {
         const mailtoLink = makeMailtoURL(getAddr(), "Hello!", message);
-        msgEle.innerHTML = `Oops!, there was a problem sending your message. Please try again later or <a href='#' onClick='redirectToURL("${mailtoLink}")' title='${mailtoLink}'>send me an email</a> instead.`;
+        msgEle.innerHTML = `Oops! There was a problem sending your message. Please try again later or <a href='#' onClick='redirectToURL("${mailtoLink}")' title='${mailtoLink}'>send me an email</a> instead.`;
     });
 }
