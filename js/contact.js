@@ -1,54 +1,61 @@
-$(document).ready(function() {
-
-  //Use JQuery to send the form, not HTML
-  $("#contactForm").submit(function(event) {
-    event.preventDefault();
-    submitContactForm();
+(function () {
+  // Listen for form submit
+  document.querySelector("#contactForm").addEventListener("submit", function (e) {
+    e.preventDefault();
+  console.log("listengn")
+  submitContactForm();
   });
 
-});
+})();
 
-function myEmail() {
-  var a = [99, 109, 106, 110, 89, 89, 104, 50, 94, 79, 96, 82, 73, 84, 79, 81, 14, 65, 75, 71] //contact at... 
-  var b = "";
-  for (var i in a)
+function getAddr() {
+  const a = [99, 109, 106, 110, 89, 89, 104, 50, 94, 79, 96, 82, 73, 84, 79, 81, 14, 65, 75, 71] //contact at... 
+  let b = "";
+  for (let i in a)
     b += String.fromCharCode(a[i] + 2 * i);
   return b;
 }
 
-function sendEmail() {
-  var url = "mailto:" + myEmail();
-  console.debug(url);
-  location.href = url;
+function sendMail() {
+  location.href = "mailto:" + getAddr();
 }
 
 function submitContactForm() {
-  document.getElementById("sent").innerHTML = "Sending...";
+  const msgEle = document.getElementById("form-response-message")
+  
+  msgEle.innerHTML = "Sending...";
 
-  var name = $("input[name=name]").val();
-  var email = $("input[name=email]").val().trim();
-  var message = $("textarea[name=message]").val();
-  var _subject = $("input[name=_subject]").val();
-  var _format = $("input[name=_format]").val();
-  var _gotcha = $("input[name=_gotcha]").val();
+  const name = document.querySelector("input[id=contact-name]").value;
+  const email = document.querySelector("input[id=contact-email]").value.trim();
+  const message = document.querySelector("textarea[id=contact-message]").value;
+  const _subject = document.querySelector("input[id=_subject]").value;
+  const _format = document.querySelector("input[id=_format]").value;
+  const _gotcha = document.querySelector("input[id=_gotcha]").value;
 
-  $.ajax({
-    url: "//formspree.io/" + myEmail(),
+  const url = "//formspree.io/" + getAddr();
+  const options = {
     method: "POST",
-    data: {
+    body: JSON.stringify({
       name: name,
       email: email,
       message: message,
       _subject: _subject,
       _format: _format,
       _gotcha: _gotcha
-    },
-    dataType: "json",
-    success: function() {
-      document.getElementById("sent").innerHTML = "Message sent. Thanks!";
-    },
-    error: function(xhr) {
-      document.getElementById("sent").innerHTML = "Error sending message. Please try again!";
+    }),
+    headers: {
+      "Content-Type": "application/json",
+      dataType: "json"
     }
-  });
+  }
+
+  fetch(url, options)
+    .then(res => res.json())
+    .then(data => {
+      msgEle.innerHTML = "Thanks for your message. I'll get in touch with you soon!";
+    }).catch(err => {
+        console.error("Error: ", err);
+        msgEle.innerHTML = "Oops, there was a problem sending your message. Please try again later or " +
+         "<a href='#' onClick='sendMail()' title='" + "mailto:" + getAddr() + "'>send me an email</a>.";
+    });
 }
