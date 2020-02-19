@@ -101,7 +101,7 @@ a:hover {
 }
 
 /* Vertical navbar for small phones */
-@media (max-width: 375px) {
+@media (max-width: 355px) {
   #navbar .items {
     flex-direction: column !important;
   }
