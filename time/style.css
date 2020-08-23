@@ -1,0 +1,44 @@
+html, body {
+    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+    background: #fafafa;
+    color: #444;
+}
+.container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: calc(90vh - 10rem);
+}
+
+.container .main-content {
+  text-align: center;
+  width: 80%;
+}
+
+#time {
+    font-size: 100px;
+    margin: 0.2em 0;
+}
+#date {
+    font-size: 50px;
+}
+
+#time:hover, #date:hover {
+    cursor: pointer;
+}
+
+#writable {
+    width: 80%;
+    margin: 10vh auto 0;
+    max-height: 5rem;
+    text-align: center;
+    font-size: 30px;
+    color: #ccc;
+}
+
+[contenteditable=true]:empty:before{
+    content: attr(placeholder);
+    color: #ddd;
+    pointer-events: none;
+    display: block; /* For Firefox */
+  }
