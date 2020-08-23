@@ -1,22 +1,21 @@
 const displayDatetime = (timeEl, dateEl, timeFormatIdx, dateFormatIdx) => {
-
-    const now = new Date();
-    const parseTime =  (time) => {
+    const parseDate = (datetime) => {
         const months = ["January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"];
         const days = ["Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"];
-        const day = days[time.getDay()];
-        const hr = time.getHours() % 12;
-        const min = time.getMinutes().toString().padStart(2, "0");
-        const sec = time.getSeconds().toString().padStart(2, "0");
-        const amPm = time.getHours() < 12 ? "am" : "pm";
-        const date = time.getDate();
-        const month = months[time.getMonth()];
-        const year = time.getFullYear();
-
+        const day = days[datetime.getDay()];
+        const hours = datetime.getHours() % 12;
+        const hr = hours === 0 ? 12 : hours;
+        const min = datetime.getMinutes().toString().padStart(2, "0");
+        const sec = datetime.getSeconds().toString().padStart(2, "0");
+        const amPm = datetime.getHours() < 12 ? "am" : "pm";
+        const date = datetime.getDate();
+        const month = months[datetime.getMonth()];
+        const year = datetime.getFullYear();
         return {year, month, date, day, hr, min, sec, amPm}
-
     }
-    const  {year, month, date, day, hr, min, sec, amPm} = parseTime(now);
+
+    const now = new Date();
+    const {year, month, date, day, hr, min, sec, amPm} = parseDate(now);
 
     // format
     const thinsp = String.fromCharCode(8239);    
