@@ -13,7 +13,7 @@ html, body {
 
 .container .main-content {
   text-align: center;
-  width: 80%;
+  width: 70%;
 }
 
 #time {
@@ -29,17 +29,29 @@ html, body {
 }
 
 #writable {
-    width: 80%;
+    width: 70%;
     margin: calc(10vh - 5rem) auto 0;
     max-height: 5rem;
     text-align: center;
     font-size: 30px;
     color: #ccc;
+    caret-color : #444;
+    border: none;
+    outline: 0px solid transparent;
 }
 
-[contenteditable=true]:empty:before{
-    content: attr(placeholder);
-    color: #ddd;
+#writable:focus {
+    /* text-decoration: underline 1px #444; */
+    border-bottom: 1px solid #ccc;
+  }
+
+#writable:empty:before{
+    content: attr(placeholder); /* show placeholder only when blurred */
+    color: #ccc;
     pointer-events: none;
     display: block; /* For Firefox */
-  }
+}
+
+#writable:empty:focus:before{
+    content: none;
+}

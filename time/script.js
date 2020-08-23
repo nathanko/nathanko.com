@@ -67,7 +67,10 @@ setInterval(() => displayDatetime(timeEl, dateEl, timeFormatIdx, dateFormatIdx),
 // listener for changing the writable text
 
 const writableEl = document.getElementById("writable");
-writableEl.innerHTML = localStorage.getItem('writableContent') || null;
+const savedWritableContent = localStorage.getItem('writableContent');
+if (savedWritableContent !== null) {
+    writableEl.innerHTML = savedWritableContent;
+}
 writableEl.addEventListener("input", () => {
     localStorage.setItem('writableContent', writableEl.innerText);
 });
