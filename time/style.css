@@ -22,6 +22,7 @@ body {
   font-size: 100px;
   margin: 0.2em 0;
 }
+
 #date {
   font-size: 50px;
 }
@@ -30,23 +31,25 @@ body {
   font-size: 100px;
   margin: 0.2em 0;
 }
-#pomo-countdown small {
+#pomo-countdown small,
+#time small,
+#date small {
   font-size: 50px;
 }
 
-#content-nav {
+.content-nav {
   font-size: 30px;
   margin: 3rem 0 0;
   color: #ccc;
 }
 
-#content-nav a {
+.content-nav a {
   /* min-width: 10rem; */
   padding: 1rem 2rem;
   color: #ccc;
 }
 
-#content-nav a:hover {
+.content-nav a:hover {
   color: #888;
 }
 

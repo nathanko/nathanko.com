@@ -71,10 +71,12 @@ const displayDatetime = (timeEl, dateEl, timeFormatIdx, dateFormatIdx) => {
   const thinsp = String.fromCharCode(8239);
   switch (timeFormatIdx) {
     case 1:
-      timeEl.innerText = hr + ":" + min + thinsp + amPm;
+      timeEl.innerHTML =
+        hr + ":" + min + thinsp + "<small>" + amPm + "</small>";
       break;
     default:
-      timeEl.innerText = hr + ":" + min + ":" + sec + thinsp + amPm;
+      timeEl.innerHTML =
+        hr + ":" + min + ":" + sec + thinsp + "<small>" + amPm + "</small>";
       break;
   }
   switch (dateFormatIdx) {
@@ -135,11 +137,13 @@ writableEl.addEventListener("input", () => {
  * POMODORO TAB
  **********************/
 
-const pomoWorkLength = 25 * 60;
+const pomoWorkLength = 63;
 let pomoSecsLeft = pomoWorkLength;
+let pomoStartPlayTime;
 let pomoIsPlaying = false;
 const resetBtn = document.getElementById("reset-btn");
 const pausePlayBtn = document.getElementById("pause-play-btn");
+const finishBtn = document.getElementById("finish-btn");
 const pomoCountdownDiv = document.getElementById("pomo-countdown");
 const pauseIcon = document.querySelector("#pause-play-btn #pause");
 const playIcon = document.querySelector("#pause-play-btn #play");
@@ -155,25 +159,28 @@ const playPomo = () => {
     return;
   }
 
-  pomoIsPlaying = true;
   updatePlayPauseIcons();
+  pomoStartPlayTime = Date.now() / 1000;
+  pomoIsPlaying = true;
 
-  displayPomoTime(pomoSecsLeft--);
+  displayPomoTime(pomoSecsLeft + pomoStartPlayTime - Date.now() / 1000);
   playInterval = setInterval(() => {
-    displayPomoTime(pomoSecsLeft--);
-    if (pomoSecsLeft < 0) {
+    displayPomoTime(pomoSecsLeft + pomoStartPlayTime - Date.now() / 1000);
+    if (pomoSecsLeft + pomoStartPlayTime - Date.now() / 1000 < 0) {
       pausePomo();
     }
-  }, 1000);
+  }, 100);
 };
 
 const pausePomo = () => {
   pomoIsPlaying = false;
+  pomoSecsLeft -= Date.now() / 1000 - pomoStartPlayTime;
   updatePlayPauseIcons();
   clearInterval(playInterval);
 };
 
 const displayPomoTime = (pomoSecsLeft) => {
+  pomoSecsLeft = Math.ceil(pomoSecsLeft);
   if (pomoSecsLeft > 60) {
     const min = Math.floor(pomoSecsLeft / 60);
     const sec = pomoSecsLeft % 60;
@@ -191,7 +198,7 @@ const displayPomoTime = (pomoSecsLeft) => {
 };
 
 resetBtn.addEventListener("click", () => {
-  pausePomo();
+  pomoStartPlayTime = Date.now() / 1000;
   pomoSecsLeft = pomoWorkLength;
   displayPomoTime(pomoSecsLeft);
 });
@@ -204,3 +211,9 @@ pausePlayBtn.addEventListener("click", () => {
   }
 });
 displayPomoTime(pomoSecsLeft);
+
+finishBtn.addEventListener("click", () => {
+  pomoStartPlayTime = Date.now() / 1000;
+  pomoSecsLeft = 0;
+  displayPomoTime(pomoSecsLeft);
+});
