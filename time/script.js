@@ -1,3 +1,32 @@
+/**********************
+ * NAVIGATION
+ **********************/
+
+let currTab; // "clock" or "pomo"
+
+const pomoLink = document.getElementById("pomo-link");
+const pomoTab = document.getElementById("pomo-tab");
+const clockLink = document.getElementById("clock-link");
+const clockTab = document.getElementById("clock-tab");
+
+pomoLink.addEventListener("click", () => {
+    currTab = "pomo";
+    clockTab.style.display = "none";
+    pomoTab.style.display = "initial";
+    displayPomoTime(pomoSecsLeft);
+});
+
+clockLink.addEventListener("click", () => {
+    currTab = "clock";
+    pomoTab.style.display = "none";
+    clockTab.style.display = "initial";
+    document.title = "Time"
+});
+
+/**********************
+ * CLOCK TAB
+ **********************/
+
 const displayDatetime = (timeEl, dateEl, timeFormatIdx, dateFormatIdx) => {
     const parseDate = (datetime) => {
         const months = ["January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"];
@@ -73,3 +102,78 @@ if (savedWritableContent !== null) {
 writableEl.addEventListener("input", () => {
     localStorage.setItem('writableContent', writableEl.innerText);
 });
+
+/**********************
+ * POMODORO TAB
+ **********************/
+
+const pomoWorkLength = 25*60;
+let pomoSecsLeft = pomoWorkLength;
+let pomoIsPlaying = false;
+const resetBtn = document.getElementById("reset-btn");
+const pausePlayBtn = document.getElementById("pause-play-btn");
+const pomoCountdownDiv = document.getElementById("pomo-countdown");
+const pauseIcon = document.querySelector("#pause-play-btn #pause");
+const playIcon = document.querySelector("#pause-play-btn #play");
+
+const updatePlayPauseIcons = () => {
+    pauseIcon.style.display = pomoIsPlaying ? "initial" : "none";
+    playIcon.style.display = pomoIsPlaying ? "none" : "initial";
+}
+
+let playInterval;
+const playPomo = () => {
+    if (pomoSecsLeft <= 0) {
+        return;
+    }
+
+    pomoIsPlaying = true;
+    updatePlayPauseIcons();
+
+    displayPomoTime(pomoSecsLeft--);
+    playInterval = setInterval(() => {
+        displayPomoTime(pomoSecsLeft--);
+        if (pomoSecsLeft < 0) {
+            pausePomo();
+        }
+    }, 1000);
+}
+
+const pausePomo = () => {
+    pomoIsPlaying = false;
+    updatePlayPauseIcons();
+    clearInterval(playInterval);
+}
+
+const displayPomoTime = (pomoSecsLeft) => {
+    if (pomoSecsLeft > 60) {
+        const min =  Math.floor(pomoSecsLeft / 60);
+        const sec = pomoSecsLeft % 60;
+        const displayStr = min + ":" + String(sec).padStart(2, "0");
+        pomoCountdownDiv.innerText = displayStr;
+        if (currTab === "pomo") {
+            document.title = displayStr + " - Time";
+        }
+    } else {
+        pomoCountdownDiv.innerHTML = pomoSecsLeft + '<small>s</small>';
+        if (currTab === "pomo") {
+            document.title = pomoSecsLeft + "s" + " - Time";
+        }
+    }
+}
+
+resetBtn.addEventListener("click", () => {
+    pausePomo();
+    pomoSecsLeft = pomoWorkLength;
+    displayPomoTime(pomoSecsLeft);
+});
+
+
+pausePlayBtn.addEventListener("click", () => {
+    if (!pomoIsPlaying) {
+        playPomo();
+    } else {
+        pausePomo();
+    }
+});
+displayPomoTime(pomoSecsLeft);
