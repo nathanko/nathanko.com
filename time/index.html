@@ -1,38 +1,48 @@
 <html>
-    <head>
-        <title>Time</title>
-        <link rel="stylesheet" href="style.css">
-        <script src="https://kit.fontawesome.com/f292e6b8c0.js" crossorigin="anonymous"></script>
-    </head>
-    <body>
-        <div class="container">
-            <div id="clock-tab" class="main-content">
-                <div id="time"></div>
-                <div id="date"></div>
-                <div id="content-nav">
-                    <a href="#" id="pomo-link" class="no-link-decorate">
-                        <i class="fas fa-stopwatch"></i>
-                    </a>
-                </div>
-            </div>
-            <div id="pomo-tab" class="main-content" style="display:none">
-                <div id="pomo-countdown">0
-                </div>
-                <div id="content-nav">
-                    <a href="#" id="reset-btn" class="no-link-decorate">
-                        <i class="fas fa-undo"></i>
-                    </a>
-                    <a href="#" id="pause-play-btn" class="no-link-decorate">
-                        <i id="pause" class="fas fa-pause" style="display:none"></i>
-                        <i id="play" class="fas fa-play"></i>
-                    </a>
-                    <a href="#" id="clock-link" class="no-link-decorate">
-                        <i class="fas fa-clock"></i>
-                    </a>
-                </div>
-            </div>
-        </div>        
-        <div id="writable" contenteditable="true" placeholder="Tempus fugit. Memento mori." spellcheck="false" title="Click to edit">Tempus fugit. Memento mori.</div>
-    </body>
-    <script src="script.js"></script>
+  <head>
+    <title>Time</title>
+    <link rel="stylesheet" href="style.css" />
+    <script
+      src="https://kit.fontawesome.com/f292e6b8c0.js"
+      crossorigin="anonymous"
+    ></script>
+  </head>
+  <body>
+    <div class="container">
+      <div id="clock-tab" class="main-content">
+        <div id="time"></div>
+        <div id="date"></div>
+        <div id="content-nav">
+          <a href="#" id="pomo-link" class="no-link-decorate">
+            <i class="fas fa-stopwatch"></i>
+          </a>
+        </div>
+      </div>
+      <div id="pomo-tab" class="main-content" style="display: none">
+        <div id="pomo-countdown">0</div>
+        <div id="content-nav">
+          <a href="#" id="reset-btn" class="no-link-decorate">
+            <i class="fas fa-undo"></i>
+          </a>
+          <a href="#" id="pause-play-btn" class="no-link-decorate">
+            <i id="pause" class="fas fa-pause" style="display: none"></i>
+            <i id="play" class="fas fa-play"></i>
+          </a>
+          <a href="#" id="clock-link" class="no-link-decorate">
+            <i class="fas fa-clock"></i>
+          </a>
+        </div>
+      </div>
+    </div>
+    <div
+      id="writable"
+      contenteditable="true"
+      placeholder="Tempus fugit. Memento mori."
+      spellcheck="false"
+      title="Click to edit"
+    >
+      Tempus fugit. Memento mori.
+    </div>
+  </body>
+  <script src="script.js"></script>
 </html>
