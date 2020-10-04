@@ -9,19 +9,32 @@ const pomoTab = document.getElementById("pomo-tab");
 const clockLink = document.getElementById("clock-link");
 const clockTab = document.getElementById("clock-tab");
 
-pomoLink.addEventListener("click", () => {
+switchTabToPomodoro = () => {
   currTab = "pomo";
   clockTab.style.display = "none";
   pomoTab.style.display = "initial";
-  displayPomoTime(pomoSecsLeft);
-});
+};
 
-clockLink.addEventListener("click", () => {
+switchTabToClock = () => {
   currTab = "clock";
   pomoTab.style.display = "none";
   clockTab.style.display = "initial";
   document.title = "Time";
+  // document.body.style.backgroundColor = "#fafafa";
+};
+
+pomoLink.addEventListener("click", () => {
+  switchTabToPomodoro();
 });
+clockLink.addEventListener("click", () => {
+  switchTabToClock();
+});
+
+if (window.location.hash === "#pomodoro") {
+  switchTabToPomodoro();
+} else {
+  switchTabToClock();
+}
 
 /**********************
  * CLOCK TAB
@@ -137,14 +150,35 @@ writableEl.addEventListener("input", () => {
  * POMODORO TAB
  **********************/
 
-const pomoWorkLength = 63;
-let pomoSecsLeft = pomoWorkLength;
+const pomoSettings = {
+  steps: [
+    {
+      name: "focus",
+      length: 25 * 60,
+      color: "#cc6666",
+    },
+    {
+      name: "short break",
+      length: 5 * 60,
+      color: "#66cccc",
+    },
+    {
+      name: "long break",
+      length: 15 * 60,
+      color: "#66cc99",
+    },
+  ],
+};
+let currStep = 0;
+let pomoSecsLeft = pomoSettings.steps[currStep].length;
 let pomoStartPlayTime;
 let pomoIsPlaying = false;
 const resetBtn = document.getElementById("reset-btn");
 const pausePlayBtn = document.getElementById("pause-play-btn");
 const finishBtn = document.getElementById("finish-btn");
 const pomoCountdownDiv = document.getElementById("pomo-countdown");
+const pomoDescDiv = document.getElementById("pomo-desc");
+const pomoProgressDiv = document.getElementById("pomo-progress");
 const pauseIcon = document.querySelector("#pause-play-btn #pause");
 const playIcon = document.querySelector("#pause-play-btn #play");
 
@@ -153,30 +187,39 @@ const updatePlayPauseIcons = () => {
   playIcon.style.display = pomoIsPlaying ? "none" : "initial";
 };
 
-let playInterval;
-const playPomo = () => {
+const pomoSwitchToStep = (step) => {
+  currStep = step;
+  const { name, length, color } = pomoSettings.steps[step];
+  console.log("Start step ", name, length, color);
+  // document.body.style.backgroundColor = color;
+  pomoDescDiv.innerHTML = "<b>" + name + "</b>";
+  pomoSecsLeft = length;
+};
+
+const pomoPlayStep = () => {
   if (pomoSecsLeft <= 0) {
     return;
   }
-
+  pomoIsPlaying = true;
   updatePlayPauseIcons();
   pomoStartPlayTime = Date.now() / 1000;
-  pomoIsPlaying = true;
-
-  displayPomoTime(pomoSecsLeft + pomoStartPlayTime - Date.now() / 1000);
-  playInterval = setInterval(() => {
-    displayPomoTime(pomoSecsLeft + pomoStartPlayTime - Date.now() / 1000);
-    if (pomoSecsLeft + pomoStartPlayTime - Date.now() / 1000 < 0) {
-      pausePomo();
-    }
-  }, 100);
 };
 
-const pausePomo = () => {
+const pomoPauseStep = () => {
   pomoIsPlaying = false;
   pomoSecsLeft -= Date.now() / 1000 - pomoStartPlayTime;
   updatePlayPauseIcons();
-  clearInterval(playInterval);
+};
+
+const pomoFinishStep = () => {
+  pomoStartPlayTime = Date.now() / 1000;
+  displayPomoTime(pomoSecsLeft);
+  pomoSwitchToStep((currStep + 1) % pomoSettings.steps.length);
+  console.log(
+    currStep,
+    pomoSettings.steps.length,
+    (currStep + 1) % pomoSettings.steps.length
+  );
 };
 
 const displayPomoTime = (pomoSecsLeft) => {
@@ -195,7 +238,25 @@ const displayPomoTime = (pomoSecsLeft) => {
       document.title = pomoSecsLeft + "s" + " - Time";
     }
   }
+  const progressPercent =
+    1 - pomoSecsLeft / pomoSettings.steps[currStep].length;
+  pomoProgressDiv.style.width = progressPercent * 100 + "%";
 };
+
+// update time
+pomoSwitchToStep(currStep);
+displayPomoTime(pomoSecsLeft);
+setInterval(() => {
+  if (pomoIsPlaying) {
+    const count = pomoSecsLeft + pomoStartPlayTime - Date.now() / 1000;
+    displayPomoTime(count);
+    if (count < 0) {
+      pomoFinishStep();
+    }
+  }
+}, 100);
+
+// button listeners
 
 resetBtn.addEventListener("click", () => {
   pomoStartPlayTime = Date.now() / 1000;
@@ -204,16 +265,9 @@ resetBtn.addEventListener("click", () => {
 });
 
 pausePlayBtn.addEventListener("click", () => {
-  if (!pomoIsPlaying) {
-    playPomo();
-  } else {
-    pausePomo();
-  }
+  pomoIsPlaying ? pomoPauseStep() : pomoPlayStep();
 });
-displayPomoTime(pomoSecsLeft);
 
 finishBtn.addEventListener("click", () => {
-  pomoStartPlayTime = Date.now() / 1000;
-  pomoSecsLeft = 0;
-  displayPomoTime(pomoSecsLeft);
+  pomoFinishStep();
 });

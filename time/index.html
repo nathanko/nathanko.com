@@ -7,36 +7,69 @@
       crossorigin="anonymous"
     ></script>
   </head>
+
   <body>
+    <nav class="nav">
+      <ul class="nav-left">
+        <li>
+          <a href="/" class="no-link-decorate">
+            <!-- <i class="fas fa-home" title="Home"></i> -->
+            <img class="logo" title="Home" src="../img/logo-blue.png" />
+          </a>
+        </li>
+      </ul>
+      <ul class="nav-right">
+        <li>
+          <a href="#clock" class="no-link-decorate" id="clock-link">
+            <!-- <i class="fas fa-clock"></i> -->
+            Time & Date
+          </a>
+        </li>
+        <li>
+          <a href="#pomodoro" class="no-link-decorate" id="pomo-link">
+            <!-- <i class="fas fa-stopwatch"></i> -->
+            Pomodoro
+          </a>
+        </li>
+      </ul>
+    </nav>
     <div class="container">
       <div id="clock-tab" class="main-content">
         <div id="time"></div>
         <div id="date"></div>
-        <div class="content-nav">
-          <a href="#" id="pomo-link" class="no-link-decorate">
+        <!-- <div class="content-nav">
+          <a href="javascript:void(0)" id="pomo-link" class="no-link-decorate">
             <i class="fas fa-stopwatch"></i>
           </a>
-        </div>
+        </div> -->
       </div>
       <div id="pomo-tab" class="main-content" style="display: none">
+        <div id="pomo-desc"></div>
         <div id="pomo-countdown">0</div>
+        <div id="pomo-progress-wrapper">
+          <div id="pomo-progress"></div>
+        </div>
         <div class="content-nav">
-          <a href="#" id="reset-btn" class="no-link-decorate">
+          <a href="javascript:void(0)" id="reset-btn" class="no-link-decorate">
             <i class="fas fa-undo"></i>
           </a>
-          <a href="#" id="pause-play-btn" class="no-link-decorate">
+          <a
+            href="javascript:void(0)"
+            id="pause-play-btn"
+            class="no-link-decorate"
+          >
             <i id="pause" class="fas fa-pause" style="display: none"></i>
             <i id="play" class="fas fa-play"></i>
           </a>
-          <a href="#" id="finish-btn" class="no-link-decorate">
-            <i class="fas fa-check"></i>
+          <a href="javascript:void(0)" id="finish-btn" class="no-link-decorate">
+            <i class="fas fa-long-arrow-alt-right"></i>
           </a>
         </div>
-        <div class="content-nav">
-          <a href="#" id="clock-link" class="no-link-decorate">
+        <!-- <div class="content-nav">
+          <a href="javascript:void(0)" id="clock-link" class="no-link-decorate">
             <i class="fas fa-clock"></i>
           </a>
-        </div>
+        </div> -->
       </div>
     </div>
     <div
