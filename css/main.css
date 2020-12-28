@@ -6,14 +6,37 @@ body {
   height: 100%;
 }
 
+.container {
+  max-width: 1200px !important; /* override skeleton.css default 960px */
+}
+
 /* Typography
 ----------------------------------------------- */
 
 .section-heading {
   color: #000;
-  font-weight: 500 !important;
-  letter-spacing: .3rem !important;
-  text-transform: uppercase;
+  margin: 6rem 0 2rem;
+  font-weight: bolder !important;
+  /* letter-spacing: .3rem !important; */
+  /* text-transform: uppercase; */
+  text-align: center;
+}
+
+.align-left {
+  text-align: left !important;
+}
+
+.align-right {
+  text-align: right !important;
+}
+
+.section-article {
+  margin: 14rem auto;
+  /* min-height: 50vh; */
+}
+
+.section-desc {
+  text-align: center;
 }
 
 hr:not(.full) {
@@ -57,16 +80,21 @@ a {
   text-decoration: none;
 }
 
-a:not(.no-link-style) {
+a:not(.no-link-style), a:not(.reverse-link-style) {
   border-bottom:1px solid #000;
 }
 
-button a, a.no-link-style {
+button a, a.no-link-style, a.reverse-link-style {
   border: none !important;
 }
 
 a:hover {
   border-bottom: none !important; 
+  transition:.5s;
+}
+
+a:hover.reverse-link-style {
+  border-bottom:1px solid #000 !important;
   transition:.5s;
 }
 
@@ -79,12 +107,27 @@ a:hover {
   height: 0;
 }
 
+/* .sticky-bottom {
+  position: sticky;
+  bottom: 0;
+  height: 0;
+} */
+
 /* Components
 ----------------------------------------------- */
 
+#navbar {
+  /* padding-top: 2rem;
+  padding-bottom: 2rem; */
+  padding: 4rem;
+}
+
+#navbar #home-link {
+  font-weight: bold;
+  font-size: 1.5em;
+}
+
 #navbar .items {
-  padding-top: 2rem;
-  padding-bottom: 2rem;
   display: flex;
   flex-direction: row;
   flex-wrap: wrap;
@@ -100,8 +143,8 @@ a:hover {
   margin-left: 3rem; 
 }
 
-/* Vertical navbar for small phones */
-@media (max-width: 355px) {
+/* Vertical navbar for phones */
+@media (max-width: 560px) {
   #navbar .items {
     flex-direction: column !important;
   }
@@ -194,12 +237,29 @@ input, textarea {
   background-image: url(../img/interaptix.png);
 }
 
+/* About
+----------------------------------------------- */
+
+#about {
+  /* background: white; */
+}
+
+
 /* Projects
 ----------------------------------------------- */
 
 .project-list a {
   margin-right: 2rem;
 }
-.project-list .item {
+.project-list .item{
   margin: 3rem 0;
+}
+.project-list .item:first-child{
+  margin-top: 0 !important;
+}
+
+.project-list .project-heading {
+  margin: 0;
+  padding: 0;
+  font-weight: bolder !important;
 }

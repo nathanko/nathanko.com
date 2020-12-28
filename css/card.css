@@ -1,0 +1,21 @@
+.card-collection {
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+}
+.card {
+    border: 2px solid #555;
+    border-radius: 10px;
+    padding: 2rem;
+    min-width: 25rem;
+    height: 25rem;
+    margin: 4rem;
+}
+.card__title {
+    display: block;
+    font-weight: bolder;
+    font-size: larger;
+}
+.card__desc {
+    display: block;
+}
