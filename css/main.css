@@ -84,7 +84,7 @@ a:not(.no-link-style), a:not(.reverse-link-style) {
   border-bottom:1px solid #000;
 }
 
-button a, a.no-link-style, a.reverse-link-style {
+a.no-link-style, a.reverse-link-style {
   border: none !important;
 }
 
